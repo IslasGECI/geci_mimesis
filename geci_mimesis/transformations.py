@@ -7,8 +7,9 @@ def number_field(field: dict) -> list:
 
 
 def integer_field(field: dict) -> list:
+    constraints: dict = field["constraints"]
     field = Field()
-    return field("numeric.integer_number", start=0, end=67)
+    return field("numeric.integer_number", start=constraints["minimum"], end=constraints["maximum"])
 
 
 def enum_field(field: dict) -> list:
