@@ -1,0 +1,141 @@
+{
+    "name": "erradicacion_de_cabras_en_isla_maria_cleofas",
+    "schema": "tabular-data-package",
+    "profile": "tabular-data-package",
+    "institution": "Grupo de Ecología y Conservación de Islas",
+    "resources": [
+        {
+            "path": "erradicacion_cabras_maria_cleofas.csv",
+            "profile": "tabular-data-resource",
+            "name": "erradicacion_cabras_maria_cleofas",
+            "format": "csv",
+            "mediatype": "text/csv",
+            "encoding": "utf-8",
+            "title": "Feral goat hunting effort in Maria Cleofas Island",
+            "titulo": "Esfuerzos de cacería de cabra feral en Isla María Cleofas",
+            "description": "Este recurso contiene el registro de horas y vuelos de cacería de cabra feral",
+            "drive": "",
+            "source": "Registro de esfuerzos de cacería para el proyecto de restauración integral del archipiélago Islas Marías, FCS.",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "Expedicion",
+                        "type": "integer",
+                        "format": "default",
+                        "long_name": "Expedition ID",
+                        "nombre_largo": "ID de expedición"
+                    },
+                    {
+                        "name": "No_vuelo",
+                        "type": "integer",
+                        "format": "default",
+                        "long_name": "Expedition flight number",
+                        "nombre_largo": "Número de vuelo de la expedición",
+                        "constraints": {
+                            "maximum": 8
+                        }
+                    },
+                    {
+                        "name": "Horas_totales",
+                        "type": "number",
+                        "format": "default",
+                        "long_name": "Total flying hours",
+                        "nombre_largo": "Horas totales de vuelo",
+                        "units": "hr",
+                        "constraints": {
+                            "minimum": 0.65,
+                            "maximum": 4.79
+                        }
+                    },
+                    {
+                        "name": "Horas_traslado",
+                        "type": "number",
+                        "format": "default",
+                        "long_name": "Commuting time",
+                        "nombre_largo": "Tiempo de traslado",
+                        "units": "hr",
+                        "constraints": {
+                            "minimum": 0,
+                            "maximum": 1.67
+                        }
+                    },
+                    {
+                        "name": "Esfuerzo",
+                        "type": "number",
+                        "format": "default",
+                        "long_name": "Number of effective hunting hours",
+                        "nombre_largo": "Número de horas efectivas de caza",
+                        "units": "hr",
+                        "constraints": {
+                            "minimum": 0.65,
+                            "maximum": 3.12
+                        }
+                    },
+                    {
+                        "name": "Horas_acumuladas",
+                        "type": "number",
+                        "format": "default",
+                        "long_name": "Cumulative effort in hours",
+                        "nombre_largo": "Esfuerzo acumulado en horas",
+                        "units": "hr",
+                        "constraints": {
+                            "minimum": 0
+                        }
+                    },
+                    {
+                        "name": "Capturas",
+                        "type": "integer",
+                        "format": "default",
+                        "long_name": "Number of removed goats by flight",
+                        "nombre_largo": "Número de cabras removidas por vuelo",
+                        "constraints": {
+                            "minimum": 1,
+                            "maximum": 52
+                        }
+                    },
+                    {
+                        "name": "Acumulado",
+                        "type": "integer",
+                        "format": "default",
+                        "long_name": "Cumulative number of removals",
+                        "nombre_largo": "Número acumulado de remociones",
+                        "constraints": {
+                            "minimum": 1,
+                            "maximum": 161
+                        }
+                    },
+                    {
+                        "name": "CPUE",
+                        "type": "number",
+                        "format": "default",
+                        "long_name": "Captures per unit of effort",
+                        "nombre_largo": "Capturas por unidad de esfuerzo",
+                        "constraints": {
+                            "minimum": 1.5,
+                            "maximum": 24
+                        }
+                    },
+                    {
+                        "name": "Observaciones",
+                        "type": "string",
+                        "format": "default",
+                        "long_name": "Observations",
+                        "nombre_largo": "Observaciones"
+                    }
+                ],
+                "foreignKeys": [
+                    {
+                        "fields": ["Expedicion"],
+                        "reference": {
+                            "resource": "lista_de_expediciones",
+                            "fields": ["Expedicion"]
+                        }
+                    }
+                ],
+                "missingValues": [
+                    "NA"
+                ]
+            }
+        }
+    ]
+}
