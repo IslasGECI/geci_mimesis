@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - `number_column()`
+- `integer_column()`
 - `enum_column()`
 
 ### Fixed
