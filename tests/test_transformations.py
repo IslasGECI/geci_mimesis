@@ -21,6 +21,6 @@ field: dict = {
 }
 
 
-def test_number_column():
-    obtained = dt.number_column(field)
+def test_number_field():
+    obtained = dt.number_field(field)
     assert all(np.array(obtained) < 1.67)
