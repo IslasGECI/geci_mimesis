@@ -1,4 +1,3 @@
-import numpy as np
 import geci_mimesis as dt
 
 

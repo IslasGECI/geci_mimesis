@@ -2,14 +2,16 @@ from mimesis import Field
 
 
 def number_field(field: dict) -> list:
-    field = Field()
-    return field("numeric.float_number", start=0.0, end=1.67)
+    field_generator = Field()
+    return field_generator("numeric.float_number", start=0.0, end=1.67)
 
 
 def integer_field(field: dict) -> list:
     constraints: dict = field["constraints"]
-    field = Field()
-    return field("numeric.integer_number", start=constraints["minimum"], end=constraints["maximum"])
+    field_generator = Field()
+    return field_generator(
+        "numeric.integer_number", start=constraints["minimum"], end=constraints["maximum"]
+    )
 
 
 def enum_field(field: dict) -> list:
