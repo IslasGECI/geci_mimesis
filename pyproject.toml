@@ -10,6 +10,7 @@ description-file = "README.md"
 home-page = "https://github.com/IslasGECI/geci_mimesis"
 module = "geci_mimesis"
 requires = [
+	"mimesis",
 	"numpy"
 ]
 requires-python=">=3.9"
