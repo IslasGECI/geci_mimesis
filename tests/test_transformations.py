@@ -21,4 +21,5 @@ field: dict = {
 
 
 def test_number_column():
-    dt.number_column(field)
+    obtained = dt.number_column(field)
+    assert all(obtained < 1.67)
