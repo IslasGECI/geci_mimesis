@@ -23,4 +23,4 @@ field: dict = {
 
 def test_number_field():
     obtained = dt.number_field(field)
-    assert all(np.array(obtained) < 1.67)
+    assert obtained < 1.67
