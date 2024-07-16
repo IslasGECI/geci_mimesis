@@ -3,4 +3,4 @@ def add_offset(augend: int, addend: int) -> int:
 
 
 def number_column(field: dict) -> list:
-    return [1, 2, 3]
+    return [1, 1.1, 1.3]
