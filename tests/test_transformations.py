@@ -45,5 +45,5 @@ island: dict = {
 
 
 def test_enum_field():
-    obtained = dt.enum_field(field)
-    assert obtained == "Todos Santos Norte"
+    obtained = dt.enum_field(island)
+    assert obtained in all_islet

@@ -7,5 +7,6 @@ def number_field(field: dict) -> list:
 
 
 def enum_field(field: dict) -> list:
-    field = Field()
-    return field("choice", items=["Todos Santos Norte"])
+    enum_list: list = field["constraints"]["enum"]
+    field_generator = Field()
+    return field_generator("choice", items=enum_list)
