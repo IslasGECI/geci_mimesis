@@ -18,29 +18,29 @@ def test_number_field():
     assert obtained < 1.67
 
 
+all_islet: list = [
+    "Asuncion",
+    "Coronado Medio",
+    "Coronado Norte",
+    "Coronado Sur",
+    "Coronado Terron de Azucar",
+    "Natividad",
+    "San Benito Este",
+    "San Benito Medio",
+    "San Benito Oeste",
+    "San Jeronimo",
+    "San Martin",
+    "San Roque",
+    "Todos Santos",
+    "Todos Santos Norte",
+    "Todos Santos Sur",
+]
+
 island: dict = {
     "type": "string",
     "name": "Isla",
     "format": "default",
-    "constraints": {
-        "enum": [
-            "Asuncion",
-            "Coronado Medio",
-            "Coronado Norte",
-            "Coronado Sur",
-            "Coronado Terron de Azucar",
-            "Natividad",
-            "San Benito Este",
-            "San Benito Medio",
-            "San Benito Oeste",
-            "San Jeronimo",
-            "San Martin",
-            "San Roque",
-            "Todos Santos",
-            "Todos Santos Norte",
-            "Todos Santos Sur",
-        ]
-    },
+    "constraints": {"enum": all_islet},
 }
 
 
