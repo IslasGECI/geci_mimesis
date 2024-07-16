@@ -1,3 +1,4 @@
+import numpy as np
 import geci_mimesis as dt
 
 
@@ -22,4 +23,4 @@ field: dict = {
 
 def test_number_column():
     obtained = dt.number_column(field)
-    assert all(obtained < 1.67)
+    assert all(np.array(obtained) < 1.67)
