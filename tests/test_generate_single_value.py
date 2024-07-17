@@ -62,6 +62,9 @@ def test_integer_field():
     obtained = dt.integer_field(captures)
     assert obtained < 52
     assert obtained > 1
+    obtained = dt.get_right_field(captures)
+    assert obtained < 52
+    assert obtained > 1
 
 
 expedition: dict = {
