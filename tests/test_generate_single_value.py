@@ -87,6 +87,12 @@ def test_get_right_field():
     obtained = dt.get_right_field(captures_without_constraints)
 
 
+def test_get_right_key() -> None:
+    obtained = get_right_key(captures)
+    expected = "integer_constraints"
+    assert obtained == expected
+
+
 expedition: dict = {
     "name": "Expedicion",
     "type": "integer",
