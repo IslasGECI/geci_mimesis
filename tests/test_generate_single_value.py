@@ -62,3 +62,17 @@ def test_integer_field():
     obtained = dt.integer_field(captures)
     assert obtained < 52
     assert obtained > 1
+
+
+expedition: dict = {
+    "name": "Expedicion",
+    "type": "integer",
+    "format": "default",
+    "long_name": "Expedition ID",
+    "nombre_largo": "ID de expedición",
+}
+
+
+def test_integer_field_without_constrains():
+    obtained = dt.integer_field_without_constrains(expedition)
+    assert isinstance(obtained, int)
