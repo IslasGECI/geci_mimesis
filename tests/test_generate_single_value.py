@@ -85,6 +85,8 @@ def test_get_right_field():
         "nombre_largo": "Número de cabras removidas por vuelo",
     }
     obtained = dt.get_right_field(captures_without_constraints)
+    obtained = dt.get_right_field(island)
+    assert obtained in all_islet
 
 
 def test_get_right_key() -> None:
