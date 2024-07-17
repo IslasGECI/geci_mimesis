@@ -49,6 +49,8 @@ jobs:
       with:
         files: ./coverage.xml
         verbose: true
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     - name: Create/Update tag
       uses: rickstaa/action-create-tag@v1.5.4
       with:
