@@ -23,3 +23,7 @@ def enum_field(field: dict) -> list:
 def integer_field_without_constraints(field: dict) -> list:
     field_generator = Field()
     return field_generator("numeric.integer_number")
+
+
+def get_right_field(field: dict) -> list:
+    return integer_field(field)
