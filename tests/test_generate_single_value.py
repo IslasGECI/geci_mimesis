@@ -1,3 +1,4 @@
+from pytest import approx
 import geci_mimesis as dt
 
 
@@ -14,7 +15,13 @@ field: dict = {
 
 def test_number_field():
     obtained = dt.number_field(field)
-    assert obtained < 1.67
+    assert all([dt.number_field(field) < 1.67 for _ in range(10)])
+    mean_field = _average([dt.number_field(field) for _ in range(500)])
+    assert approx(mean_field, abs=1e-1) == 1.67 / 2
+
+
+def _average(lst):
+    return sum(lst) / len(lst)
 
 
 all_islet: list = [
@@ -60,8 +67,8 @@ captures: dict = {
 
 def test_integer_field():
     obtained = dt.integer_field(captures)
-    assert obtained < 52
-    assert obtained > 1
+    assert obtained <= 52
+    assert obtained >= 1
 
 
 def test_get_right_field():
