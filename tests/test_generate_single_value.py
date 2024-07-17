@@ -73,12 +73,3 @@ def test_get_right_field():
     obtained = dt.get_right_field(captures_without_constraints)
     obtained = dt.get_right_field(island)
     assert obtained in all_islet
-
-
-expedition: dict = {
-    "name": "Expedicion",
-    "type": "integer",
-    "format": "default",
-    "long_name": "Expedition ID",
-    "nombre_largo": "ID de expedición",
-}
