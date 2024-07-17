@@ -32,4 +32,7 @@ def get_right_field(field: dict) -> list:
 
 
 def get_right_key(field: dict) -> str:
-    return "integer_constraints"
+    field_type: str = field["type"]
+    if "constraints" in field:
+        return f"{field_type}_constraints"
+    return field_type
