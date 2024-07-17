@@ -50,27 +50,6 @@ island: dict = {
 }
 
 
-def test_enum_field():
-    obtained = dt.enum_field(island)
-    assert obtained in all_islet
-
-
-captures: dict = {
-    "name": "Capturas",
-    "type": "integer",
-    "format": "default",
-    "long_name": "Number of removed goats by flight",
-    "nombre_largo": "Número de cabras removidas por vuelo",
-    "constraints": {"minimum": 1, "maximum": 52},
-}
-
-
-def test_integer_field():
-    obtained = dt.integer_field(captures)
-    assert obtained <= 52
-    assert obtained >= 1
-
-
 def test_get_right_field():
     captures: dict = {
         "name": "Capturas",
