@@ -26,4 +26,6 @@ def integer_field_without_constraints(field: dict) -> list:
 
 
 def get_right_field(field: dict) -> list:
-    return integer_field(field)
+    if "constraints" in field:
+        return integer_field(field)
+    return integer_field_without_constraints(field)
