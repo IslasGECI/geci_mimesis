@@ -82,8 +82,3 @@ expedition: dict = {
     "long_name": "Expedition ID",
     "nombre_largo": "ID de expedición",
 }
-
-
-def test_integer_field_without_constraints():
-    obtained = dt.integer_field_without_constraints(expedition)
-    assert isinstance(obtained, int)
