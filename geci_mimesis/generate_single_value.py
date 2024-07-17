@@ -26,9 +26,8 @@ def integer_field_without_constraints(field: dict) -> list:
 
 
 def get_right_field(field: dict) -> list:
-    if "constraints" in field:
-        return integer_field(field)
-    return integer_field_without_constraints(field)
+    right_field = selector_type_of_field(field)
+    return right_field(field)
 
 
 def get_right_key(field: dict) -> str:
@@ -36,3 +35,12 @@ def get_right_key(field: dict) -> str:
     if "constraints" in field:
         return f"{field_type}_constraints"
     return field_type
+
+
+def selector_type_of_field(field: dict):
+    field_type: str = get_right_key(field)
+    different_field = {
+        "integer_constraints": integer_field,
+        "integer": integer_field_without_constraints,
+    }
+    return different_field[field_type]
