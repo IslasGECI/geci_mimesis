@@ -29,3 +29,7 @@ def get_right_field(field: dict) -> list:
     if "constraints" in field:
         return integer_field(field)
     return integer_field_without_constraints(field)
+
+
+def get_right_key(field: dict) -> str:
+    return "integer_constraints"

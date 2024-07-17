@@ -88,7 +88,7 @@ def test_get_right_field():
 
 
 def test_get_right_key() -> None:
-    obtained = get_right_key(captures)
+    obtained = dt.get_right_key(captures)
     expected = "integer_constraints"
     assert obtained == expected
 
