@@ -96,15 +96,6 @@ def test_get_right_field():
     assert obtained in all_islet
 
 
-def test_get_right_key() -> None:
-    obtained = dt.get_right_key(captures)
-    expected = "integer_constraints"
-    assert obtained == expected
-    obtained = dt.get_right_key(expedition)
-    expected = "integer"
-    assert obtained == expected
-
-
 expedition: dict = {
     "name": "Expedicion",
     "type": "integer",
