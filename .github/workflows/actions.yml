@@ -45,7 +45,7 @@ jobs:
     - name: Corre pruebas y evalúa cobertura
       run: docker run --volume $PWD:/workdir islasgeci/geci_mimesis:latest make coverage
     - name: Upload coverage reports to Codecov with GitHub Action
-      uses: actions/checkout@main
+      uses: codecov/codecov-action@main
       with:
         files: ./coverage.xml
         verbose: true
