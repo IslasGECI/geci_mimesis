@@ -62,9 +62,29 @@ def test_integer_field():
     obtained = dt.integer_field(captures)
     assert obtained < 52
     assert obtained > 1
+
+
+def test_get_right_field():
+    captures: dict = {
+        "name": "Capturas",
+        "type": "integer",
+        "format": "default",
+        "long_name": "Number of removed goats by flight",
+        "nombre_largo": "Número de cabras removidas por vuelo",
+        "constraints": {"minimum": 1, "maximum": 2},
+    }
     obtained = dt.get_right_field(captures)
-    assert obtained < 52
-    assert obtained > 1
+    superior_limit = 2
+    assert obtained <= superior_limit
+    assert obtained >= 1
+    captures_without_constraints: dict = {
+        "name": "Capturas",
+        "type": "integer",
+        "format": "default",
+        "long_name": "Number of removed goats by flight",
+        "nombre_largo": "Número de cabras removidas por vuelo",
+    }
+    obtained = dt.get_right_field(captures_without_constraints)
 
 
 expedition: dict = {
