@@ -14,7 +14,6 @@ field: dict = {
 
 
 def test_number_field():
-    obtained = dt.number_field(field)
     assert all([dt.number_field(field) < 1.67 for _ in range(10)])
     mean_field = _average([dt.number_field(field) for _ in range(500)])
     assert approx(mean_field, abs=1e-1) == 1.67 / 2
