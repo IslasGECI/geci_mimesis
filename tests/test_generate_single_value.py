@@ -73,6 +73,6 @@ expedition: dict = {
 }
 
 
-def test_integer_field_without_constrains():
-    obtained = dt.integer_field_without_constrains(expedition)
+def test_integer_field_without_constraints():
+    obtained = dt.integer_field_without_constraints(expedition)
     assert isinstance(obtained, int)

@@ -20,6 +20,6 @@ def enum_field(field: dict) -> list:
     return field_generator("choice", items=enum_list)
 
 
-def integer_field_without_constrains(field: dict) -> list:
+def integer_field_without_constraints(field: dict) -> list:
     field_generator = Field()
     return field_generator("numeric.integer_number")
