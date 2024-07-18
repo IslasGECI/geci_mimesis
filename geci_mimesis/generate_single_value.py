@@ -1,9 +1,12 @@
 from mimesis import Field
 
 
-def number_field(field: dict) -> list:
+def number_field(field: dict) -> float:
+    constraints: dict = field["constraints"]
     field_generator = Field()
-    return field_generator("numeric.float_number", start=0.0, end=1.67)
+    return field_generator(
+        "numeric.float_number", start=constraints["minimum"], end=constraints["maximum"]
+    )
 
 
 def get_right_field(field: dict) -> list[int]:
