@@ -73,7 +73,6 @@ def test_get_right_field() -> None:
     obtained = dt.get_right_field(island)
     assert obtained in all_islet
 
-    obtained = dt.get_right_field(field)
-    assert all([obtained < 1.67 for _ in range(10)])
-    mean_field = _average([obtained for _ in range(500)])
+    assert all([dt.get_right_field(field) < 1.67 for _ in range(10)])
+    mean_field = _average([dt.get_right_field(field) for _ in range(500)])
     assert approx(mean_field, abs=1e-1) == 1.67 / 2

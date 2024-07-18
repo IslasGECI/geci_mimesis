@@ -20,6 +20,7 @@ def _selector_type_of_field(field: dict):
         "integer_constraints": _integer_field,
         "integer": _integer_field_without_constraints,
         "string_constraints": _enum_field,
+        "number_constraints": number_field,
     }
     return different_field[field_type]
 
