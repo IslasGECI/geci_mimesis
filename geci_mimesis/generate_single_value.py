@@ -1,7 +1,7 @@
 from mimesis import Field
 
 
-def number_field(field: dict) -> float:
+def _number_field(field: dict) -> float:
     constraints: dict = field["constraints"]
     field_generator = Field()
     return field_generator(
@@ -20,7 +20,7 @@ def _selector_type_of_field(field: dict):
         "integer_constraints": _integer_field,
         "integer": _integer_field_without_constraints,
         "string_constraints": _enum_field,
-        "number_constraints": number_field,
+        "number_constraints": _number_field,
     }
     return different_field[field_type]
 
