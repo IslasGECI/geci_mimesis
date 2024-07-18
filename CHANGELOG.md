@@ -7,17 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.1] - 2024-07-16
-
 ### Added
-- `number_column()`
-- `get_right_field()`
 
 ### Fixed
 
 ### Changed
 
 ### Removed
+
+## [0.5.0] - 2024-07-18
+
+### Added
+- Add typing to functions
+- Run slow tests only in CI channel
+
+### Removed
+- Rename `number_column()` -> `_number_column()`
+
+## [0.0.1] - 2024-07-16
+
+### Added
+- `number_column()`
+- `get_right_field()`
+
 
 
 [unreleased]: https://github.com/IslasGECI/geci_mimesis/compare/v1.1.1...HEAD
