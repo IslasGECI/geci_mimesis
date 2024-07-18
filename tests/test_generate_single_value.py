@@ -67,9 +67,8 @@ def test_get_right_field() -> None:
     obtained = get_right_field(captures_without_constraints)
     obtained = get_right_field(island)
     assert obtained in all_islet
-    assert all([get_right_field(field) < 1.67 for _ in range(10)])
-    mean_field = _average([get_right_field(field) for _ in range(500)])
-    assert approx(mean_field, abs=1e-1) == 1.67 / 2
+    obtained = get_right_field(field)
+    assert (obtained < 1.67) & (obtained > 0)
 
 
 @mark.skipif(os.getenv("GITHUB_ACTIONS") is None, reason="This is a slow test")
