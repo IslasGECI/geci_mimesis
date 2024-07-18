@@ -6,7 +6,7 @@ def number_field(field: dict) -> list:
     return field_generator("numeric.float_number", start=0.0, end=1.67)
 
 
-def get_right_field(field: dict) -> list:
+def get_right_field(field: dict) -> list[int]:
     right_field = _selector_type_of_field(field)
     return right_field(field)
 
@@ -28,7 +28,7 @@ def _get_right_key(field: dict) -> str:
     return field_type
 
 
-def _integer_field(field: dict) -> list:
+def _integer_field(field: dict) -> int:
     constraints: dict = field["constraints"]
     field_generator = Field()
     return field_generator(
@@ -36,12 +36,12 @@ def _integer_field(field: dict) -> list:
     )
 
 
-def _enum_field(field: dict) -> list:
+def _enum_field(field: dict) -> str:
     enum_list: list = field["constraints"]["enum"]
     field_generator = Field()
     return field_generator("choice", items=enum_list)
 
 
-def _integer_field_without_constraints(field: dict) -> list:
+def _integer_field_without_constraints(field: dict) -> int:
     field_generator = Field()
     return field_generator("numeric.integer_number")

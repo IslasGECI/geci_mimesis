@@ -49,7 +49,7 @@ island: dict = {
 }
 
 
-def test_get_right_field():
+def test_get_right_field() -> None:
     captures: dict = {
         "name": "Capturas",
         "type": "integer",
