@@ -9,7 +9,7 @@ def _number_field(field: dict) -> float:
     )
 
 
-def get_right_field(field: dict) -> list[int]:
+def get_right_field(field: dict) -> int | str | float:
     right_field = _selector_type_of_field(field)
     return right_field(field)
 
