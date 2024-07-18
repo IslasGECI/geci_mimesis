@@ -42,8 +42,10 @@ jobs:
         docker image ls -a
     - name: Verifica el formato
       run: docker run islasgeci/geci_mimesis:latest make check
+    - name: Print GITHUB_ACTIONS variable
+      run: echo ${GITHUB_ACTIONS}
     - name: Corre pruebas y evalúa cobertura
-      run: docker run --volume $PWD:/workdir islasgeci/geci_mimesis:latest make coverage
+      run: docker run --volume $PWD:/workdir --env GITHUB_ACTIONS=${GITHUB_ACTIONS} islasgeci/geci_mimesis:latest make coverage
     - name: Upload coverage reports to Codecov with GitHub Action
       uses: codecov/codecov-action@main
       with:
@@ -59,6 +61,7 @@ jobs:
         force_push_tag: true
 
   mutation-testing:
+    name: Mutation testing 👾
     needs: build-image
     runs-on: ubuntu-latest
     steps:
