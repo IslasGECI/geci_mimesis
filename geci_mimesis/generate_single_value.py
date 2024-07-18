@@ -1,4 +1,5 @@
 from mimesis import Field
+from typing import Any
 
 
 def _number_field(field: dict) -> float:
@@ -9,7 +10,7 @@ def _number_field(field: dict) -> float:
     )
 
 
-def get_right_field(field: dict) -> int | str | float:
+def get_right_field(field: dict) -> Any:
     right_field = _selector_type_of_field(field)
     return right_field(field)
 

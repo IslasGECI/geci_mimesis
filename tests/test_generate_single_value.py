@@ -1,6 +1,6 @@
 import os
 from pytest import approx, mark
-import geci_mimesis as dt
+from geci_mimesis import get_right_field
 
 
 field: dict = {
@@ -53,7 +53,7 @@ def test_get_right_field() -> None:
         "nombre_largo": "Número de cabras removidas por vuelo",
         "constraints": {"minimum": 1, "maximum": 2},
     }
-    obtained = dt.get_right_field(captures)
+    obtained = get_right_field(captures)
     superior_limit = 2
     assert obtained <= superior_limit
     assert obtained >= 1
@@ -64,16 +64,16 @@ def test_get_right_field() -> None:
         "long_name": "Number of removed goats by flight",
         "nombre_largo": "Número de cabras removidas por vuelo",
     }
-    obtained = dt.get_right_field(captures_without_constraints)
-    obtained = dt.get_right_field(island)
+    obtained = get_right_field(captures_without_constraints)
+    obtained = get_right_field(island)
     assert obtained in all_islet
-    assert all([dt.get_right_field(field) < 1.67 for _ in range(10)])
-    mean_field = _average([dt.get_right_field(field) for _ in range(500)])
+    assert all([get_right_field(field) < 1.67 for _ in range(10)])
+    mean_field = _average([get_right_field(field) for _ in range(500)])
     assert approx(mean_field, abs=1e-1) == 1.67 / 2
 
 
 @mark.skipif(os.getenv("GITHUB_ACTIONS") is None, reason="This is a slow test")
 def test_slow_get_right_field() -> None:
-    assert all([dt.get_right_field(field) < 1.67 for _ in range(10)])
-    mean_field = _average([dt.get_right_field(field) for _ in range(500)])
+    assert all([get_right_field(field) < 1.67 for _ in range(10)])
+    mean_field = _average([get_right_field(field) for _ in range(500)])
     assert approx(mean_field, abs=1e-1) == 1.67 / 2
