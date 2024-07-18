@@ -68,11 +68,13 @@ def test_get_right_field() -> None:
     obtained = get_right_field(island)
     assert obtained in all_islet
     obtained = get_right_field(field)
-    assert (obtained < 1.67) & (obtained > 0)
+    assert (obtained < field["constraints"]["maximum"]) & (
+        obtained > field["constraints"]["minimum"]
+    )
 
 
 @mark.skipif(os.getenv("GITHUB_ACTIONS") is None, reason="This is a slow test")
 def test_slow_get_right_field() -> None:
-    assert all([get_right_field(field) < 1.67 for _ in range(10)])
+    assert all([get_right_field(field) < field["constraints"]["maximum"] for _ in range(10)])
     mean_field = _average([get_right_field(field) for _ in range(500)])
-    assert approx(mean_field, abs=1e-1) == 1.67 / 2
+    assert approx(mean_field, abs=1e-1) == field["constraints"]["maximum"] / 2
