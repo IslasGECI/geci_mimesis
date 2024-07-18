@@ -58,9 +58,25 @@ jobs:
         message: "Latest release"
         force_push_tag: true
 
+  mutation-testing:
+    needs: build-image
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifact
+      uses: actions/download-artifact@main
+      with:
+        name: image
+        path: /tmp
+    - name: Load image
+      run: |
+        docker load --input /tmp/image.tar
+        docker image ls -a
+    - name: Evalúa resistencia a mutaciones
+      run: docker run islasgeci/api_caller:latest make mutants
+
   build-n-publish:
     name: Build and publish Python 🐍 distributions 📦 to PyPI
-    needs: test-module
+    needs: [test-module, mutation-testing]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@main
